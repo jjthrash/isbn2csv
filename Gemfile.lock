@@ -39,8 +39,15 @@ GEM
       rest-client (~> 1.6.1)
       term-ansicolor (~> 1.0.5)
     i18n (0.5.0)
+    isbndb (1.5.5)
+      activesupport
+      i18n
+      libxml-ruby (>= 1.1.4)
+      rake
+      rdoc
     launchy (2.0.5)
       addressable (~> 2.2.6)
+    libxml-ruby (2.2.0)
     mail (2.2.19)
       activesupport (>= 2.3.6)
       i18n (>= 0.4.0)
@@ -85,5 +92,6 @@ PLATFORMS
 DEPENDENCIES
   haml (~> 3.1.2)
   heroku
+  isbndb (~> 1.5.5)
   pg
   rails (= 3.0.9)
