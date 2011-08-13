@@ -2,7 +2,7 @@ require 'csv'
 
 class HomeController < ApplicationController
   def csv
-    isbns = params[:csv][:isbns].split(/\D+/)
+    isbns = params[:csv][:isbns].scan(/\b(?:\d{13}|\d{10})\b/)
     csv = CSV.generate(:col_sep => "\t") do |csv|
       csv << %w(isbn author title)
       isbns.each do |isbn|
