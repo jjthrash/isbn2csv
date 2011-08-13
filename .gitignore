@@ -9,3 +9,6 @@ vendor/ruby
 
 # Vim
 .*.sw?
+
+# QuickConfig
+.isbndb
