@@ -1,0 +1,6 @@
+= form_for :csv, :url => csv_path do |f|
+  = f.label :isbns, 'Paste your list of ISBNs here'
+  %br
+  = f.text_area :isbns
+  %br
+  = f.submit 'Get yer CSV'
