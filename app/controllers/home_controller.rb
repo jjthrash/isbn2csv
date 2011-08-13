@@ -3,7 +3,7 @@ require 'csv'
 class HomeController < ApplicationController
   def csv
     isbns = params[:csv][:isbns].split(/\D+/)
-    csv = CSV.generate do |csv|
+    csv = CSV.generate(:col_sep => "\t") do |csv|
       csv << %w(isbn author title)
       isbns.each do |isbn|
         ISBNDB_QUERY.find_book_by_isbn(isbn).first.tap do |result|
