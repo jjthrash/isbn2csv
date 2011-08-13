@@ -1,4 +1,7 @@
 Isbn2csv::Application.routes.draw do
+  match '' => 'home#index'
+  match 'csv' => 'home#csv'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
