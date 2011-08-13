@@ -1,0 +1,11 @@
+# Rails
+.bundle
+db/*.sqlite3
+log/*.log
+tmp/
+
+# Bundler
+vendor/ruby
+
+# Vim
+.*.sw?
