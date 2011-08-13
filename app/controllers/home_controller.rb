@@ -7,7 +7,7 @@ class HomeController < ApplicationController
       csv << %w(isbn author title)
       isbns.each do |isbn|
         ISBNDB_QUERY.find_book_by_isbn(isbn).first.tap do |result|
-          csv << [result.isbn, result.authors_text, result.title]
+          csv << [longify(result.isbn), result.authors_text, result.title]
         end
       end
     end
@@ -26,5 +26,10 @@ class HomeController < ApplicationController
     end
 
     render :layout => false, :text => csv
+  end
+
+  private
+  def longify(isbn)
+    isbn.length == 10 ?  "978" + isbn : isbn
   end
 end
