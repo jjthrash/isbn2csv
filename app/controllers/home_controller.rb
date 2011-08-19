@@ -6,7 +6,11 @@ class HomeController < ApplicationController
     csv = CSV.generate(:col_sep => "\t") do |csv|
       isbns.each do |isbn|
         ISBNDB_QUERY.find_book_by_isbn(isbn).first.tap do |result|
-          csv << [longify(result.isbn), result.title, result.authors_text]
+          if result.present?
+            csv << [longify(result.isbn), result.title, result.authors_text]
+          else
+            csv << [isbn, "**Couldn't find**"]
+          end
         end
       end
     end
